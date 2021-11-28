@@ -1,6 +1,7 @@
 package AddressBook;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,4 +43,37 @@ public class AddressBook {
 
 	}
 
+	public void editContacts() {
+		System.out.println("Enter your First name:");
+		String firstName = scan.next();
+
+		Iterator<Contacts> iterator = this.list.listIterator();
+
+		while (iterator.hasNext()) {
+			Contacts contacts = iterator.next();
+
+			if (firstName.equals(contacts.getFirstName())) {
+				System.out.println("Re-Correct your Last Name");
+				contacts.setLastName(scan.next());
+
+				System.out.println("Re-Correct your Address");
+				contacts.setAddress(scan.next());
+
+				System.out.println("Re-Correct your City");
+				contacts.setCity(scan.next());
+
+				System.out.println("Re-Correct your State");
+				contacts.setState(scan.next());
+
+				System.out.println("Re-Correct your Zip");
+				contacts.setZipCode(scan.nextInt());
+
+				System.out.println("Re-Correct your Phone Number");
+				contacts.setPhoneNumber(scan.nextLong());
+
+				System.out.println("Re-Correct your Email");
+				contacts.setEmail(scan.next());
+			}
+		}
+	}
 }
