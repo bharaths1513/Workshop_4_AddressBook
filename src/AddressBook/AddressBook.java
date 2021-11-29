@@ -10,14 +10,61 @@ public class AddressBook {
 	List<Contacts> list = new ArrayList<>();
 	Scanner scan = new Scanner(System.in);
 
-	public void operation() {
-		System.out.println("Enter num of contacts to add");
-		int numOfContact = scan.nextInt();
-		int count = 1;
-		while (count <= numOfContact) {
-			addContacts();
-			count++;
+	public void addressbook() {
+		System.out.println("Enter num of Address Book to add");
+		int book = scan.nextInt();
+		int i = 1;
+		while (i <= book) {
+			System.out.println("Enter the address book name");
+			String bookname = scan.next();
+			operation();
+			i++;
 		}
+
+	}
+
+	public void operation() {
+
+		int Contactcount = 1;
+		boolean status = true;
+
+		do {
+			System.out.println("Choose 1 - add contact");
+			System.out.println("Choose 2 - Display contacts");
+			System.out.println("Choose 3 - Edit Contacts");
+			System.out.println("Choose 4 - Delete Contacts");
+
+			switch (scan.nextInt()) {
+
+			case 1:
+				System.out.println("Enter num of contacts to add");
+				int numOfContact = scan.nextInt();
+
+				while (numOfContact <= Contactcount) {
+					addContacts();
+					Contactcount++;
+				}
+				break;
+
+			case 2:
+				display();
+				break;
+
+			case 3:
+				editContacts();
+				break;
+
+			case 4:
+				deleteContacts();
+				break;
+
+			default:
+				status = false;
+
+			}
+
+		} while (status);
+
 	}
 
 	public void addContacts() {
@@ -97,12 +144,6 @@ public class AddressBook {
 				return;
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-		AddressBook o = new AddressBook();
-		o.operation();
-		o.display();
 	}
 
 }
