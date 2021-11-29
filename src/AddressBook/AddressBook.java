@@ -7,13 +7,21 @@ import java.util.Scanner;
 
 public class AddressBook {
 
-	Contacts input = new Contacts();
 	List<Contacts> list = new ArrayList<>();
 	Scanner scan = new Scanner(System.in);
 
+	public void operation() {
+		System.out.println("Enter num of contacts to add");
+		int numOfContact = scan.nextInt();
+		int count = 1;
+		while (count <= numOfContact) {
+			addContacts();
+			count++;
+		}
+	}
+
 	public void addContacts() {
 
-		Contacts input = new Contacts();
 		System.out.println("Enter First Name");
 		String firstName = scan.next();
 		System.out.println("Enter Last Name");
@@ -37,9 +45,8 @@ public class AddressBook {
 	}
 
 	public void display() {
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list);
-		}
+
+		System.out.println(list);
 
 	}
 
@@ -90,6 +97,12 @@ public class AddressBook {
 				return;
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		AddressBook o = new AddressBook();
+		o.operation();
+		o.display();
 	}
 
 }
